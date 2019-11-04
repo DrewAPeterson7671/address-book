@@ -1,22 +1,24 @@
-// var epicodusStudent = {
-//   firstName: "Charlie",
-//   lastName: "Bucket",
-//   level: 1,
-//   track: ["PHP", "Javascript", "Drupal"],
-//   enrollmentStatus: true
-// };
-//
-// console.log(epicodusStudent.level);
-//
-//
-// var myCat = {
-//   name: "Kitty Poppins",
-//   speak: function() {
-//     console.log("Meow!");
-//   }
-// };
-// myCat.name
-// "Sugar Plum"
+function AddressBook() {
+  this.contacts = [],
+  this.currentID= 0
+}
 
+AddressBook.prototype.addContact = function(contact) {
+  contact.id = this.assignId();
+  this.contacts.push(contact);
+}
 
-console.log("Hello");
+AddressBook.prototype.assignId = function() {
+  this.currentID +=1;
+  return this.currentID;
+}
+
+function Contact(firstName, lastName, phoneNumber) {
+  this.firstName = firstName,
+  this.lastName = lastName,
+  this.phoneNumber = phoneNumber
+}
+
+Contact.prototype.fullName = function() {
+  return this.firstName + " " + this.lastName;
+}
